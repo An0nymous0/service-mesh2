@@ -1,0 +1,39 @@
+##################################################################################################
+# Details service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-mesh2
+  labels:
+    app: service-mesh2
+    service: service-mesh2
+spec:
+  ports:
+    - port: 8081
+      name: http
+  selector:
+    app: service-mesh2
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: service-mesh2-v1
+  labels:
+    app: service-mesh2
+    version: v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: service-mesh2
+        version: v1
+    spec:
+      containers:
+        - name: service-mesh2
+          image: com.demo-service-mesh2:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+---
