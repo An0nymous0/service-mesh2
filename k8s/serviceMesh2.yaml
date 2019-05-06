@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
         - name: service-mesh2
-          image: com.demo-service-mesh2:latest
+          image: 172.26.225.101:5000/com.demo-service-mesh2:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8081
