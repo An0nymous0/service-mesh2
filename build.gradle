@@ -41,7 +41,7 @@ jib {
         image = 'an0nymous/openjdk11-openj9:slim'
     }
     to {
-        image = "${project.group}-${jar.baseName}"
+        image = "172.26.225.101:5000/${project.group}-${jar.baseName}"
     }
     allowInsecureRegistries=true
 }
